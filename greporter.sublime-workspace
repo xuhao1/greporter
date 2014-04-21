@@ -1,0 +1,669 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"GL",
+				"GLOBAL_U_dot"
+			],
+			[
+				"c",
+				"controlcell"
+			],
+			[
+				"cl",
+				"calcucell"
+			],
+			[
+				"co",
+				"common"
+			],
+			[
+				"cal",
+				"calcucell"
+			],
+			[
+				"o",
+				"objects"
+			],
+			[
+				"Po",
+				"Point"
+			],
+			[
+				"u",
+				"udot"
+			],
+			[
+				"pr",
+				"pragma"
+			],
+			[
+				"glEn",
+				"glEnd"
+			],
+			[
+				"ce",
+				"center"
+			],
+			[
+				"cen",
+				"center"
+			],
+			[
+				"e",
+				"eye"
+			],
+			[
+				"up",
+				"upY"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
+				"stl",
+				"stlmodel"
+			],
+			[
+				"p",
+				"physcore"
+			],
+			[
+				"a",
+				"aSphereActor"
+			],
+			[
+				"st",
+				"stlmodel"
+			],
+			[
+				"ve",
+				"vector3f"
+			],
+			[
+				"get",
+				"getCurrentTime"
+			],
+			[
+				"re",
+				"resize"
+			],
+			[
+				"Glu",
+				"GLuint"
+			],
+			[
+				"do",
+				"doubleValue"
+			],
+			[
+				"in",
+				"include"
+			],
+			[
+				"br",
+				"brainofx"
+			],
+			[
+				"se",
+				"setforce"
+			],
+			[
+				"fl",
+				"flush"
+			],
+			[
+				"mo",
+				"motors"
+			],
+			[
+				"Sel",
+				"Serial"
+			],
+			[
+				"M",
+				"MOTOR0PIN"
+			],
+			[
+				"Se",
+				"SetupServo"
+			],
+			[
+				"S",
+				"setup"
+			],
+			[
+				"R",
+				"ReadUT"
+			],
+			[
+				"Ge",
+				"GetTemperature"
+			],
+			[
+				"RE",
+				"ReadUP"
+			],
+			[
+				"GE",
+				"GetPressure"
+			],
+			[
+				"read",
+				"read_p"
+			],
+			[
+				"w",
+				"write"
+			],
+			[
+				"h",
+				"h"
+			],
+			[
+				"HMC",
+				"HMC_ADRESS"
+			],
+			[
+				"mat",
+				"match_A"
+			],
+			[
+				"def",
+				"define"
+			],
+			[
+				"A",
+				"ADXL_ADRESS"
+			],
+			[
+				"Ad",
+				"Adxl_adress"
+			],
+			[
+				"begi",
+				"beginTransmission"
+			],
+			[
+				"Reg",
+				"Register_2D"
+			],
+			[
+				"b",
+				"byte"
+			],
+			[
+				"g",
+				"gyro"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "readme.md",
+			"settings":
+			{
+				"buffer_size": 254,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/objective-c.sublime-build",
+	"command_palette":
+	{
+		"height": 147.0,
+		"selected_items":
+		[
+			[
+				"cmake",
+				"Set Syntax: CMake"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"cuda",
+				"Set Syntax: CUDA C++"
+			],
+			[
+				"o",
+				"Set Syntax: Objective-C++"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"object",
+				"Set Syntax: Objective-C++"
+			],
+			[
+				"ob",
+				"Set Syntax: Objective-C++"
+			],
+			[
+				"mar",
+				"Markdown Preview: Python Markdown: Preview in Browser"
+			],
+			[
+				"mou",
+				"Markdown Preview: Github Flavored Markdown: Copy to Clipboard"
+			],
+			[
+				"ardu",
+				"Set Syntax: Arduino"
+			],
+			[
+				"C++",
+				"Set Syntax: C++"
+			],
+			[
+				"wire",
+				"Package Control: Upgrade/Overwrite All Packages"
+			]
+		],
+		"width": 647.0
+	},
+	"console":
+	{
+		"height": 114.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/xuhao/JesseDrone/UltraSonic/src/calcucell.h",
+		"/Users/xuhao/JesseDrone/UltraSonic/src/calcucell.cu",
+		"/Users/xuhao/JesseDrone/UltraSonic/src/controlcell.h",
+		"/Users/xuhao/JesseDrone/UltraSonic/src/controlcell.cu",
+		"/Users/xuhao/JesseDrone/UltraSonic/src/1.txt",
+		"/Users/xuhao/JesseDrone/UltraSonic/src/CMakeLists.txt",
+		"/Users/xuhao/JesseDrone/UltraSonic/CMakeLists.txt",
+		"/Users/xuhao/JesseDrone/UltraSonic/src/CMakeList.txt",
+		"/Users/xuhao/Develop/CUDA_Develop/CUDA/CUDA_Learning/heat.cu",
+		"/Users/xuhao/JesseDrone/UltraSonic/ultrasonic.cu",
+		"/Users/xuhao/a.asc",
+		"/Users/xuhao/output/pfd.000970_p000000_j.asc",
+		"/Users/xuhao/output/pfd.000910_p000000_h.asc",
+		"/Users/xuhao/output/tfd.000010.asc",
+		"/Users/xuhao/JesseDrone/UltraSonic/cal.cu",
+		"/Users/xuhao/dn6872/node_modules/express/index.js",
+		"/Users/xuhao/dn6872/app.js",
+		"/Users/xuhao/Downloads/Project BioVision/src/BioVision.java",
+		"/Users/xuhao/UltraSonic/n",
+		"/Users/xuhao/UltraSonic/simple.cu",
+		"/Users/xuhao/Develop/Application/test/test/model.h",
+		"/Users/xuhao/Develop/Application/test/test/MyOpenGl.h",
+		"/Users/xuhao/Develop/Application/test/test/PhysEngine.h",
+		"/Users/xuhao/Develop/Application/test/test/PhysEngine.cpp",
+		"/Users/xuhao/Develop/Application/test/test/model.cpp",
+		"/Users/xuhao/Develop/Application/test/test/MyOpenGl.mm",
+		"/Users/xuhao/Develop/Application/test/test/stlmodel.h",
+		"/Users/xuhao/Develop/Application/test/test/stlmodel.mm",
+		"/Users/xuhao/Desktop/mouse.py",
+		"/Users/xuhao/Develop/Application/test/test/cam.cpp",
+		"/Users/xuhao/Develop/Application/test/test/gameCore.h",
+		"/Users/xuhao/a.txt",
+		"/Users/xuhao/Develop/Application/test/test/AppDelegate.h",
+		"/Users/xuhao/Develop/Application/test/test/AppDelegate.mm",
+		"/Users/xuhao/Develop/Application/test/test/Application.xib",
+		"/Users/xuhao/Develop/Application/test/test/myWin.m",
+		"/Users/xuhao/Develop/Application/test/test/myWin.h",
+		"/Users/xuhao/Develop/Application/test/test/en.lproj/Credits.rtf",
+		"/Users/xuhao/Develop/Application/test/test/myView.h",
+		"/Users/xuhao/Develop/Application/test/test/main.m",
+		"/Users/xuhao/Develop/Application/test/test/myApp.m",
+		"/Users/xuhao/Develop/Application/test/test/myApp.h",
+		"/Users/xuhao/Source/PhysX-3.3.0_OSX_SDK_Core/Samples/compiler/xcode_osx32/Cg.framework/Versions/1.0/Headers/cgGL.h",
+		"/Users/xuhao/test.stl",
+		"/Users/xuhao/JesseDrone/Jesse.Control/Control/Matrix.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/Control/Matrix.cpp",
+		"/Users/xuhao/Develop/Application/test/test/vector3f.cpp",
+		"/Users/xuhao/Develop/Application/test/test/vector3f.h",
+		"/Users/xuhao/Develop/Application/test/test/test1.h",
+		"/Users/xuhao/Develop/Application/test/test/AppDelegate.m",
+		"/Users/xuhao/Develop/Application/test/test/MyOpenGl.m",
+		"/Developer/NVIDIA/CUDA-6.0/samples/0_Simple/vectorAdd/vectorAdd.cu",
+		"/Users/xuhao/Applications/Nsight.app/Contents/Info.plist",
+		"/Users/xuhao/tutorial_42.html",
+		"/Users/xuhao/Develop/modeling/highway/src/display.cpp",
+		"/Users/xuhao/Develop/modeling/highway/src/display.",
+		"/Users/xuhao/Develop/Lan_Study/Obj-C/test.m",
+		"/Users/xuhao/Library/Application Support/Sublime Text 3/Packages/User/objective-c.sublime-build",
+		"/Users/xuhao/Downloads/上原亚衣作品全集bt种子下载/使用说明.lnk",
+		"/Users/xuhao/Develop/Lan_Study/Obj-C/n",
+		"/Users/xuhao/Develop/Compu_Phys/PhysXtest/PhysXtest/main.cpp",
+		"/Users/xuhao/JesseDrone/PIDtest/test.py",
+		"/Users/xuhao/JesseDrone/Jesse.Control/doc/flying_control.md",
+		"/Users/xuhao/JesseDrone/Jesse.Control/Control/Matrix.hpp",
+		"/Users/xuhao/.zshrc",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/Control.ino",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/Setup.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/gyro.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/Vec.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/resolve.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/test.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/test.ino",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/resolve.ino",
+		"/Users/xuhao/JesseDrone/Jesse.Brain/readme.md",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/motor.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/montior.ino",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/Setup.ino",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/montior.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/adxl/adxl.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/adxl/adxl.ino",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/motor.ino",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/config.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/gyro/gyro.ino",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/gyro/gyro.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/test.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Jesse.Control.ino",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Setup.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Setup.ino",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/readme.md",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/hmc/hmc.ino",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/hmc/hmc.h",
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/bmp/bmp.h",
+		"/home/zyz/Jesse.Control/src/bmp/bmp.ino",
+		"/home/zyz/Jesse.Control/src/bmp/bmp.h",
+		"/home/zyz/Jesse.Control/src/untitled",
+		"/home/zyz/Jesse.Control/src/gyro.h",
+		"/home/zyz/Jesse.Control/src/gyro.ino"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "readme.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 88.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.Control":
+	{
+		"height": 118.0
+	},
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 118.0
+	},
+	"project": "greporter.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"1",
+				"src/1.txt"
+			],
+			[
+				"s",
+				"stlmodel.h"
+			],
+			[
+				"my",
+				"MyOpenGl.mm"
+			],
+			[
+				"hys",
+				"PhysEngine.h"
+			],
+			[
+				"phy",
+				"PhysEngine.cpp"
+			],
+			[
+				"mo",
+				"model.h"
+			],
+			[
+				"st",
+				"stlmodel.h"
+			],
+			[
+				"ca",
+				"cam.cpp"
+			],
+			[
+				"",
+				"PhysEngine.h"
+			],
+			[
+				"ph",
+				"PhysEngine.h"
+			],
+			[
+				"p",
+				"PhysEngine.cpp"
+			],
+			[
+				"co",
+				"gameCore.h"
+			],
+			[
+				"op",
+				"MyOpenGl.mm"
+			],
+			[
+				"o",
+				"MyOpenGl.h"
+			],
+			[
+				"std",
+				"stlmodel.h"
+			],
+			[
+				"mywi",
+				"myWin.m"
+			],
+			[
+				"stl",
+				"stlmodel.mm"
+			],
+			[
+				"ve",
+				"test/vector3f.cpp"
+			],
+			[
+				"ap",
+				"test/AppDelegate.mm"
+			],
+			[
+				"gr",
+				"src/Control/gyro.h"
+			],
+			[
+				"re",
+				"src/Control/resolve.h"
+			],
+			[
+				"te",
+				"src/Control/test.h"
+			],
+			[
+				"tes",
+				"src/Control/Setup.h"
+			],
+			[
+				"motor",
+				"src/Control/motor.ino"
+			],
+			[
+				"se",
+				"src/Control/Setup.h"
+			],
+			[
+				"test",
+				"src/Control/test.h"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/JesseDrone/Jesse/src/jesse/jesse.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+		"vintage":
+		{
+		}
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

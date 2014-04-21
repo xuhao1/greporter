@@ -1,4 +1,4 @@
-import win32com.client as win32
+#!/usr/bin/python
 import os, sys
 cwd = os.getcwd()
 path_lib = cwd + '/lib'

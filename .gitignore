@@ -1,0 +1,5 @@
+*.class
+src/node_modules
+*.pyc
+src/*.nw
+*.jar
