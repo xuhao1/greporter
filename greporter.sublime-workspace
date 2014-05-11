@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"path",
+				"path_work"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"p",
+				"prefer"
+			],
+			[
+				"re",
+				"readperfer"
+			],
+			[
+				"pr",
+				"proto	Prototype"
+			],
+			[
+				"pre",
+				"prejson"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			],
+			[
 				"ba",
 				"background-color"
 			],
@@ -56,10 +84,6 @@
 				"udot"
 			],
 			[
-				"pr",
-				"pragma"
-			],
-			[
 				"glEn",
 				"glEnd"
 			],
@@ -88,10 +112,6 @@
 				"stlmodel"
 			],
 			[
-				"p",
-				"physcore"
-			],
-			[
 				"a",
 				"aSphereActor"
 			],
@@ -106,10 +126,6 @@
 			[
 				"get",
 				"getCurrentTime"
-			],
-			[
-				"re",
-				"resize"
 			],
 			[
 				"Glu",
@@ -235,15 +251,7 @@
 			"file": "src/index.html",
 			"settings":
 			{
-				"buffer_size": 2320,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/preference.html",
-			"settings":
-			{
-				"buffer_size": 2312,
+				"buffer_size": 3282,
 				"line_ending": "Unix"
 			}
 		},
@@ -251,19 +259,40 @@
 			"file": "src/makefile",
 			"settings":
 			{
-				"buffer_size": 194,
+				"buffer_size": 210,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "",
-			"file": "src/js/path.js",
-			"file_size": 0,
-			"file_write_time": 130430066730000000,
+			"file": "src/js/perfer.js",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 1280,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/py/Runner.py",
+			"settings":
+			{
+				"buffer_size": 2127,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/py/lib/Path.py",
+			"settings":
+			{
+				"buffer_size": 9756,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/py/lib/String.py",
+			"settings":
+			{
+				"buffer_size": 8579,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -275,14 +304,19 @@
 			}
 		},
 		{
-			"contents": "---- Minecraft Crash Report ----\n// Everything's going to plan. No, really, that was supposed to happen.\n\nTime: 14-5-5 ÏÂÎç1:10\nDescription: Initializing game\n\njava.lang.IllegalArgumentException: URI has an authority component\n	at java.io.File.<init>(Unknown Source)\n	at cpw.mods.fml.common.ModClassLoader.getParentSources(ModClassLoader.java:68)\n	at cpw.mods.fml.common.discovery.ModDiscoverer.findClasspathMods(ModDiscoverer.java:48)\n	at cpw.mods.fml.common.Loader.identifyMods(Loader.java:342)\n	at cpw.mods.fml.common.Loader.loadMods(Loader.java:486)\n	at cpw.mods.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:172)\n	at net.minecraft.client.Minecraft.func_71384_a(Minecraft.java:470)\n	at net.minecraft.client.Minecraft.func_99999_d(Minecraft.java:796)\n	at net.minecraft.client.main.Main.main(SourceFile:101)\n	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\n	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\n	at java.lang.reflect.Method.invoke(Unknown Source)\n	at net.minecraft.launchwrapper.Launch.launch(Launch.java:57)\n	at net.minecraft.launchwrapper.Launch.main(Launch.java:18)\n\n\nA detailed walkthrough of the error, its code path and all known details is as follows:\n---------------------------------------------------------------------------------------\n\n-- Head --\nStacktrace:\n	at java.io.File.<init>(Unknown Source)\n	at cpw.mods.fml.common.ModClassLoader.getParentSources(ModClassLoader.java:68)\n	at cpw.mods.fml.common.discovery.ModDiscoverer.findClasspathMods(ModDiscoverer.java:48)\n	at cpw.mods.fml.common.Loader.identifyMods(Loader.java:342)\n	at cpw.mods.fml.common.Loader.loadMods(Loader.java:486)\n	at cpw.mods.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:172)\n	at net.minecraft.client.Minecraft.func_71384_a(Minecraft.java:470)\n\n-- Initialization --\nDetails:\nStacktrace:\n	at net.minecraft.client.Minecraft.func_99999_d(Minecraft.java:796)\n	at net.minecraft.client.main.Main.main(SourceFile:101)\n	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\n	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\n	at java.lang.reflect.Method.invoke(Unknown Source)\n	at net.minecraft.launchwrapper.Launch.launch(Launch.java:57)\n	at net.minecraft.launchwrapper.Launch.main(Launch.java:18)\n\n-- System Details --\nDetails:\n	Minecraft Version: 1.6.2\n	Operating System: Windows XP (x86) version 5.1\n	Java Version: 1.7.0_55, Oracle Corporation\n	Java VM Version: Java HotSpot(TM) Client VM (mixed mode), Oracle Corporation\n	Memory: 37016024 bytes (35 MB) / 79900672 bytes (76 MB) up to 1037959168 bytes (989 MB)\n	JVM Flags: 1 total; -Xmx1024m\n	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used\n	Suspicious classes: FML and Forge are installed\n	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0\n	FML: MCP v8.04 FML v6.2.19.789 Minecraft Forge 9.10.0.789 Optifine OptiFine_1.6.2_HD_U_B4[hukkºº»¯] 3 mods loaded, 0 mods active\n	mcp{8.04} [Minecraft Coder Pack] (minecraft.jar) \n	FML{6.2.19.789} [Forge Mod Loader] (coremods) \n	Forge{9.10.0.789} [Minecraft Forge] (coremods) \n	Launched Version: 1.6.2¼òµ¥ÕûºÏ\n	LWJGL: 2.9.0\n	OpenGL: Parallels using NVIDIA GeForce GT 750M OpenGL Engine GL version 2.1 NVIDIA-8.24.9 310.40.25f01, Parallels and NVIDIA Corporation\n	Is Modded: Definitely; Client brand changed to 'fml,forge'\n	Type: Client (map_client.txt)\n	Resource Pack: Ä¬ÈÏ\n	Current Language: ¼òÌåÖÐÎÄ (ÖÐ¹ú)\n	Profiler Position: N/A (disabled)\n	Vec3 Pool Size: ~~ERROR~~ NullPointerException: null",
-			"file": "/Users/xuhao/Desktop/Minecraft/.minecraft/versions/1.6.2简单整合/crash-reports/crash-2014-05-05_13.10.33-client.txt",
-			"file_size": -1,
-			"file_write_time": -1,
+			"file": "src/js/file.js",
 			"settings":
 			{
-				"buffer_size": 3653,
+				"buffer_size": 200,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/py/lib/PreProcess.py",
+			"settings":
+			{
+				"buffer_size": 198,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -362,16 +396,60 @@
 	},
 	"file_history":
 	[
+		"/Users/xuhao/Develop/greporter/src/package.json",
+		"/Users/xuhao/Develop/greporter/src/node_modules/node-python/src/js_object_wrapper.h",
+		"/Users/xuhao/Develop/greporter/java/.settings/org.eclipse.jdt.core.prefs",
+		"/Users/xuhao/Develop/greporter/src/py/lib/WriteFigure.py",
 		"/Users/xuhao/Develop/greporter/src/py/lib/Path.py",
+		"/Users/xuhao/Develop/greporter/java/.project",
+		"/Users/xuhao/Develop/greporter/java/src/Base.java",
+		"/Users/xuhao/Develop/greporter/java/src/DataFilter.java",
+		"/Users/xuhao/Develop/greporter/java/src/Defaults.java",
+		"/Users/xuhao/Develop/greporter/java/src/FileChooser.java",
+		"/Users/xuhao/Develop/greporter/java/src/Runner.java",
+		"/Users/xuhao/Develop/greporter/java/src/YedGraph.java",
+		"/Users/xuhao/Develop/greporter/java/src/YedGraph_STRnetwork.java",
+		"/Users/xuhao/Develop/greporter/java/src/YedGraph_STRnetwork_black.java",
+		"/Users/xuhao/Develop/greporter/java/src/YedGraph_STRnetwork_Single.java",
+		"/Users/xuhao/Develop/greporter/java/src/YedRunner.java",
+		"/Users/xuhao/Develop/greporter/java/.classpath",
+		"/Users/xuhao/Develop/greporter/readme.md",
+		"/Users/xuhao/Develop/greporter/makefile",
+		"/Users/xuhao/Develop/greporter/greporter.sublime-project",
+		"/Users/xuhao/Develop/greporter/.gitignore",
+		"/Users/xuhao/Develop/greporter/java/src/YedRunner_STRnetwork.java",
+		"/Users/xuhao/Develop/greporter/java/src/YedRunner_STRnetwork_black.java",
+		"/Users/xuhao/Develop/greporter/java/src/YedRunner_STRnetwork_Single.java",
+		"/Users/xuhao/Develop/greporter/src/greporter.nw",
+		"/Users/xuhao/Develop/greporter/src/perfer.json",
+		"/Users/xuhao/Develop/greporter/src/preference.html",
+		"/Users/xuhao/Develop/greporter/src/css/bootstrap-theme.min.css",
+		"/Users/xuhao/Develop/greporter/src/css/bootstrap.min.css",
+		"/Users/xuhao/Develop/greporter/src/css/main.css",
+		"/Users/xuhao/Develop/greporter/src/js/bootstrap.min.js",
+		"/Users/xuhao/Develop/greporter/src/node_modules/markdown/README.markdown",
+		"/Users/xuhao/Develop/greporter/src/node_modules/node-python/README.md",
+		"/Users/xuhao/Develop/greporter/src/py/report.sublime-project",
+		"/Users/xuhao/Develop/greporter/src/node_modules/markdown/node_modules/nopt/README.md",
+		"/Users/xuhao/Develop/greporter/src/node_modules/node-python/node_modules/bindings/README.md",
+		"/Users/xuhao/Develop/greporter/src/py/lib/ReportLoadFile.py",
+		"/Users/xuhao/Develop/greporter/src/node_modules/markdown/node_modules/nopt/node_modules/abbrev/README.md",
+		"/Users/xuhao/Develop/greporter/src/py/lib/WriteReport.py",
 		"/Users/xuhao/Develop/greporter/src/py/Runner.py",
+		"/Users/xuhao/Develop/greporter/src/py/lib/WriteExcel.py",
+		"/Users/xuhao/Develop/greporter/src/node_modules/node-python/build/Release/binding.node",
+		"/Users/xuhao/Develop/greporter/src/node_modules/node-python/build/Release/linker.lock",
+		"/Users/xuhao/Develop/greporter/src/node_modules/node-python/build/Release/.deps/Release/binding.node.d",
+		"/Users/xuhao/Develop/greporter/src/py/reporter.py",
+		"/Users/xuhao/Develop/greporter/src/js/path.js",
+		"/Users/xuhao/Develop/greporter/src/node_modules/markdown/package.json",
+		"/Users/xuhao/Develop/greporter/src/node_modules/node-python/package.json",
+		"/Users/xuhao/Develop/greporter/src/py/lib/PreProcess.py",
+		"/Users/xuhao/Desktop/Minecraft/.minecraft/versions/1.6.2简单整合/crash-reports/crash-2014-05-05_13.10.33-client.txt",
 		"/Users/xuhao/Develop/greporter/src/py/lib/CallLimma.py",
 		"/Users/xuhao/Develop/greporter/src/py/lib/CrossValidation.py",
-		"/Users/xuhao/Develop/greporter/src/py/lib/PreProcess.py",
-		"/Users/xuhao/Develop/greporter/greporter.sublime-project",
 		"/Users/xuhao/Develop/greporter/src/node_modules/markdown/Changes.markdown",
-		"/Users/xuhao/Develop/greporter/src/js/path.js",
 		"/Users/xuhao/Develop/greporter/src/R/limma.R",
-		"/Users/xuhao/Develop/greporter/src/package.json",
 		"/Users/xuhao/Develop/greporter/src/js/loadR.js",
 		"/Users/xuhao/JesseDrone/UltraSonic/src/calcucell.h",
 		"/Users/xuhao/JesseDrone/UltraSonic/src/calcucell.cu",
@@ -445,31 +523,7 @@
 		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/resolve.h",
 		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/test.h",
 		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/test.ino",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/resolve.ino",
-		"/Users/xuhao/JesseDrone/Jesse.Brain/readme.md",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/motor.h",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/montior.ino",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/Setup.ino",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/montior.h",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/adxl/adxl.h",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/adxl/adxl.ino",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/motor.ino",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/config.h",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/gyro/gyro.ino",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/gyro/gyro.h",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/test.h",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/Jesse.Control.ino",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/Setup.h",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/Setup.ino",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/readme.md",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/hmc/hmc.ino",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/hmc/hmc.h",
-		"/Users/xuhao/JesseDrone/Jesse.Control/src/bmp/bmp.h",
-		"/home/zyz/Jesse.Control/src/bmp/bmp.ino",
-		"/home/zyz/Jesse.Control/src/bmp/bmp.h",
-		"/home/zyz/Jesse.Control/src/untitled",
-		"/home/zyz/Jesse.Control/src/gyro.h",
-		"/home/zyz/Jesse.Control/src/gyro.ino"
+		"/Users/xuhao/JesseDrone/Jesse.Control/src/Control/resolve.ino"
 	],
 	"find":
 	{
@@ -487,6 +541,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"method",
 			"PreProcess"
 		],
 		"highlight": true,
@@ -505,7 +560,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -527,6 +582,7 @@
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/Markdown/Markdown.tmLanguage",
 							"vintage":
 							{
@@ -546,7 +602,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -555,15 +611,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2320,
+						"buffer_size": 3282,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								820,
+								820
 							]
 						],
 						"settings":
@@ -588,83 +644,485 @@
 								"register": "\"",
 								"repeat_data":
 								[
-									"vi",
-									"dd",
-									"mode_internal_normal",
+									"native",
+									[
+										"sequence",
+										{
+											"commands":
+											[
+												[
+													"left_delete",
+													null
+												],
+												[
+													"insert",
+													{
+														"characters": "B"
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"insert",
+													{
+														"characters": "B"
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": "<!--"
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": "_)_"
+													}
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"insert",
+													{
+														"characters": "--"
+													}
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"insert",
+													{
+														"characters": "-->"
+													}
+												]
+											]
+										}
+									],
+									"mode_insert",
 									null
 								],
 								"sequence": "",
-								"xpos": 0
+								"xpos": 50
 							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 65.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/preference.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2312,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"highlight_line": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"capture_register": false,
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"repeat_data":
-								[
-									"vi",
-									"dd",
-									"mode_internal_normal",
-									null
-								],
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 47.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "src/makefile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 194,
+						"buffer_size": 210,
 						"regions":
 						{
 						},
@@ -696,28 +1154,35 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
 				{
-					"buffer": 4,
-					"file": "src/js/path.js",
+					"buffer": 3,
+					"file": "src/js/perfer.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1280,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1192,
+								1192
 							]
 						],
 						"settings":
 						{
+							"highlight_line": false,
 							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"vintage":
@@ -743,27 +1208,124 @@
 												[
 													"insert",
 													{
-														"characters": "o"
+														"characters": ")"
 													}
 												],
 												[
-													"left_delete",
-													null
+													"move",
+													{
+														"by": "lines",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
 												],
 												[
 													"insert",
 													{
-														"characters": "i"
+														"characters": ")"
 													}
 												],
 												[
-													"left_delete",
-													null
+													"move",
+													{
+														"by": "lines",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
 												],
 												[
 													"insert",
 													{
-														"characters": "functiohn"
+														"characters": ")"
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
 													}
 												],
 												[
@@ -773,31 +1335,37 @@
 													}
 												],
 												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"insert",
+													"move",
 													{
-														"characters": "n"
+														"by": "lines",
+														"forward": false
 													}
 												],
 												[
-													"left_delete",
-													null
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
 												],
 												[
-													"left_delete",
-													null
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
 												],
 												[
 													"insert",
 													{
-														"characters": "n"
+														"characters": "  "
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": false
 													}
 												],
 												[
@@ -807,15 +1375,133 @@
 													}
 												],
 												[
-													"insert",
+													"move",
 													{
-														"characters": "path"
+														"by": "lines",
+														"forward": true
 													}
 												],
 												[
-													"insert_snippet",
+													"move",
 													{
-														"contents": "($0)"
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": " "
+													}
+												]
+											]
+										}
+									],
+									"mode_insert",
+									null
+								],
+								"sequence": "",
+								"xpos": 53
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/py/Runner.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2127,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2125,
+								2125
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"native",
+									[
+										"sequence",
+										{
+											"commands":
+											[
+												[
+													"insert",
+													{
+														"characters": "sys,"
+													}
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"insert",
+													{
+														"characters": "."
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
 													}
 												],
 												[
@@ -828,267 +1514,376 @@
 												[
 													"insert",
 													{
-														"characters": "\n"
+														"characters": "sys."
 													}
 												],
 												[
-													"insert_snippet",
+													"move",
 													{
-														"contents": "{$0}"
+														"by": "lines",
+														"forward": true
 													}
 												],
 												[
-													"run_macro_file",
+													"move",
 													{
-														"file": "res://Packages/Default/Add Line in Braces.sublime-macro"
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
 													}
 												],
 												[
 													"insert",
 													{
-														"characters": "rewturn"
+														"characters": "sys."
 													}
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"insert",
-													{
-														"characters": "turn"
-													}
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"insert",
-													{
-														"characters": "inputpa"
-													}
-												],
-												[
-													"insert",
-													{
-														"characters": "th="
-													}
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
-												],
-												[
-													"left_delete",
-													null
 												]
 											]
 										}
 									],
-									null,
+									"mode_insert",
 									null
 								],
+								"sequence": "",
+								"xpos": 63
+							}
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/py/lib/Path.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9756,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5617,
+								5617
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"native",
+									[
+										"sequence",
+										{
+											"commands":
+											[
+												[
+													"insert",
+													{
+														"characters": ",P_R"
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": ",P_R"
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": false
+													}
+												],
+												[
+													"right_delete",
+													null
+												],
+												[
+													"right_delete",
+													null
+												],
+												[
+													"right_delete",
+													null
+												],
+												[
+													"right_delete",
+													null
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": "p"
+													}
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"insert",
+													{
+														"characters": "P_R"
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": "#"
+													}
+												]
+											]
+										}
+									],
+									"mode_insert",
+									null
+								],
+								"sequence": "",
+								"xpos": 19
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 1370.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/py/lib/String.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 8579,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7253,
+								7253
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"partial_sequence": "",
+								"register": "\"",
 								"sequence": "",
 								"xpos": 0
 							}
@@ -1097,17 +1892,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 5,
+					"buffer": 7,
 					"file": "src/css/main.css",
 					"semi_transient": false,
 					"settings":
@@ -1119,12 +1908,13 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								137,
+								137
 							]
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true,
@@ -1255,41 +2045,344 @@
 									null
 								],
 								"sequence": "",
-								"xpos": 24
+								"xpos": 0
 							}
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "/Users/xuhao/Desktop/Minecraft/.minecraft/versions/1.6.2简单整合/crash-reports/crash-2014-05-05_13.10.33-client.txt",
+					"buffer": 8,
+					"file": "src/js/file.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3653,
+						"buffer_size": 200,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								160,
-								160
+								200,
+								200
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"vintage":
 							{
 								"_vintageous_glue_until_normal_mode": false,
-								"_vintageous_gluing_sequence": false,
-								"_vintageous_non_interactive": false,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"native",
+									[
+										"sequence",
+										{
+											"commands":
+											[
+												[
+													"_vi_big_a",
+													{
+														"count": 1,
+														"mode": "mode_internal_normal"
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "lines",
+														"forward": false
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"insert",
+													{
+														"characters": "TEST"
+													}
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"insert",
+													{
+														"characters": "	"
+													}
+												]
+											]
+										}
+									],
+									null,
+									null
+								],
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/py/lib/PreProcess.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 198,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								189,
+								189
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"vintage":
+							{
 								"action": null,
 								"action_count": "",
 								"capture_register": false,
@@ -1306,7 +2399,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1340,7 +2433,7 @@
 		"cols":
 		[
 			0.0,
-			0.365798862337,
+			0.5102869349,
 			1.0
 		],
 		"rows":
@@ -1378,6 +2471,22 @@
 		"selected_items":
 		[
 			[
+				"path",
+				"src/py/lib/Path.py"
+			],
+			[
+				"pr",
+				"src/py/lib/PreProcess.py"
+			],
+			[
+				"file",
+				"src/js/file.js"
+			],
+			[
+				"pa",
+				"src/package.json"
+			],
+			[
 				"pre",
 				"src/py/lib/PreProcess.py"
 			],
@@ -1388,10 +2497,6 @@
 			[
 				"limma",
 				"src/py/lib/CallLimma.py"
-			],
-			[
-				"path",
-				"src/py/lib/Path.py"
 			],
 			[
 				"1",
@@ -1525,14 +2630,14 @@
 		"_vintageous_reset_during_init": true,
 		"vintage":
 		{
-			"_cmdline_cd": "/Users/xuhao/Desktop/Minecraft/.minecraft/versions/1.6.2简单整合/crash-reports"
+			"_cmdline_cd": "/Users/xuhao/Library/Application Support/Sublime Text 3/Packages"
 		}
 	},
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_visible": false,
+	"side_bar_width": 282.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

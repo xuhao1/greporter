@@ -20,21 +20,49 @@
 
     <div data-role="content">
         <fieldset data-role="fieldcontain">
-            <label for="day">Method</label>
-            <select name="method" id="method">
-                <option value="L">L</option>
-                <option value="R">R</option>
+            <select name="method" id="method" data-role="slider">
+                <option value="B">B</option>
+                <option value="B">B</option>
         </select>
         </fieldset>
-  <input type="text" id="inp_path" placeholder="InputFile Path" />
-  <input type="text" id="oup_path" placeholder="OutputFile Path"/>
-  <button >
+  <input type="text" id="work_path" value="C:\chen\illumina\data"/>
+  <button onclick="check()">
     Confirm Paths
 </button>
+<script type="text/javascript">
+    function check()
+    {
+        var wd=$("#work_path").val();
+        var fs =require("fs");
+        files=fs.readdirSync($("#work_path").val());
+        alert("Filenow:  "+files);
+    }
+</script>
 <br/>
-<button type="button" onclick="test()">
+<button type="button" onclick="run()">
     One button finish
 </button>
+<script type="text/javascript">
+    function run()
+    {
+        var spawn = require('child_process').spawn;
+        var fs =require('fs');
+        var cwd=fs.realpathSync(".");
+        py    = spawn('python', [cwd+'\\py\\Runner.py', $("#method").val(),$("#work_path").val(),cwd+"\\py","C:\\Program Files\\R\\R-3.1.0\\bin"],{stdio:['pipe', 'pipe', 'pipe' ]});
+
+        py.stdout.on('data', function (data) {
+          $("#runtimelog").append('stdout: ' + data);
+      });
+
+        py.stderr.on('data', function (data) {
+          $("#runtimelog").append('stderr: ' + data);
+      });
+
+        alert("Run Badge please. Input files appear in "+$("#work_path").val()+"/data/exprdata. Please save your file to directory: "+$("#work_path").val()+"/data/genes_contain/badge_table_0.001. Set the filenames like: grp1_grp2_selected_unsorted.txt. Then press Enter to continue. Sorting...");
+        py.stdin.write("\n");
+
+    }
+</script>
         <!--
         <div class="home_button" data-role="collapsible">
             <h1>
@@ -61,16 +89,13 @@
         </div>
     -->
     <br/>
-    Logs
-    <textarea rows="5" id="runtimelog" placeholder="Logs" >
-    </textarea>
 
     <div data-role="collapsible">
         <h1>
             Preference
         </h1>
         <hr/>
-
+        Here is use for in non virtualbox environments
         <div class="setting">
             <h2>
                 Path to R binary
@@ -114,6 +139,9 @@
             chooseFile('Javabinary');
         </script>
     </div>
+    Logs
+    <pre rows="10" id="runtimelog" placeholder="Logs" >
+    </pre>
 
 </div>
 </body>

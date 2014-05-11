@@ -1,31 +1,39 @@
+#
+#
+#method path_work binpath Rpath
 if __name__ == '__main__':
-    import win32com.client as win32
+    #import win32com.client as win32
     import os, sys
-    cwd = os.getcwd()
-    path_lib = cwd + '\\lib'
-    sys.path.append(path_lib)
 
-    path_work = 'I:/files/Gil project/chinachen/mouse2'
-    method = raw_input('L for limma/B for badge: ')
+    #path_work = 'I:/files/Gil project/chinachen/mouse2'
+    method=sys.argv[1]
+    path_work=sys.argv[2]
+    cwd=sys.argv[3]
+    path_lib = sys.argv[3]+"\\lib\\"
+    P_R=sys.argv[4]
+
+    sys.path.append(path_lib)
+    print path_lib
+    #method = raw_input('L for limma/B for badge: ')
 
     import Labels
     import Path
     labels = Labels.Labels(method)
     path = Path.DataPaths(path_work,labels)
     progpath = Path.ProgramPath(cwd)
-    expath = Path.ExternalPath()
+    expath = Path.ExternalPath(P_R)
     IOpath = Path.IOPath(path_work)
     fps = Path.AllFilesFP(path, labels)
 
     import PreProcess
     PreProcess.RMA(path, expath, progpath, labels)
-
+    print "Finish PreProcess"
     if method=='L':
         import CallLimma
         CallLimma.Limma(path, expath, progpath, fps, labels)
     else:
-        words = 'Run Badge please. Input files appear in %s. Please save your file to directory: %s. Set the filenames like: grp1_grp2_selected_unsorted.txt. Then press Enter to continue. ' % (path.exprdata, path.genereport)
-        raw_input(words)
+        print 'Run Badge please. Input files appear in %s. Please save your file to directory: %s. Set the filenames like: grp1_grp2_selected_unsorted.txt. Then press Enter to continue. ' % (path.exprdata, path.genereport)
+        raw_input()
 
         if method=='L':
             import GetGenes

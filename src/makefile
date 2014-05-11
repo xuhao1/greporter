@@ -1,4 +1,4 @@
-greporter.nw: index.html node_modules package.json py preference.html
+greporter.nw: index.html node_modules package.json py
 	zip -r greporter.nw *
 .PHONY:run,clean
 

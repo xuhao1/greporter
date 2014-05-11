@@ -1,5 +1,5 @@
 fs = require('fs');
-dirpath='/Users/xuhao/Develop/greporter/src/';
+dirpath='.\\';
 //dirpath="";
 function prefer()
 {

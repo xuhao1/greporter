@@ -110,8 +110,8 @@ class ProgramPath(object):
 
 class ExternalPath(object):
     # Paths of external files
-    def __init__(self):
-        self.R = 'I:/Program Files/R/R-2.15.3/bin'
+    def __init__(self,P_R):
+        self.R = P_R#'I:/Program Files/R/R-2.15.3/bin'
                  # Where your Rscript.exe lies
 
 class IOPath(object):
