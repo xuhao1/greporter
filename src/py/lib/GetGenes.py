@@ -1,6 +1,7 @@
 def Sort(fps, labels):
+
     def sortGenes(fp_input, fp_table, fp_genes, fp_allgenes, threshold):
-        
+
         start = 3 # skip header
         dic_info = {}
         dic_sort = {}
@@ -28,13 +29,13 @@ def Sort(fps, labels):
             print >>OUT_table, dic_info[genes_sort[i]]
             print >>OUT_genes, genes_sort[i]
 
-#-----------------------------------------------------
     print 'Sorting...'
     for comp in labels.comp2:
         print '\tProcessing group: %s' % comp
         sortGenes(fps['Gene Table Unsorted'][comp], fps['Gene Table'][comp], fps['Gene List'][comp], fps['Gene List All'][comp], labels.threshold)
-    
+
 def getOverlap_Badge(fps, labels):
+
     print 'Getting overlaps...'
     for overlap in labels.overlap:
         print '\tProcessing %s: %s' % (overlap, labels.dic_overlap[overlap])
@@ -77,6 +78,7 @@ def getOverlap_Badge(fps, labels):
             print >>OUT_genes, genes_sort[i]
 
 def getOverlap_Limma(fps, labels):
+
     print 'Getting overlaps...'
     for overlap in labels.overlap:
         print '\tProcessing %s: %s' % (overlap, labels.dic_overlap[overlap])
@@ -95,7 +97,7 @@ def getOverlap_Limma(fps, labels):
         for i in range(start, len(content1)):
             items = content1[i].rstrip().split('\t')
             gene = items[0]
-            pval = float(items[2])
+            pval = float(items[6])
             if pval <= 0.5:
                 pval = 1-pval
             dic1_sort[gene] = pval
@@ -119,12 +121,97 @@ def getOverlap_Limma(fps, labels):
             print >>OUT_genes, genes_sort[i]
 
 
-def geneSymToAffyID(fps, labels):
+def getDiff_Badge(fps, labels):
+    # get difference set of two sets of genes
+    print 'Getting difference sets...'
+    for diff in labels.diff:
+        print '\tProcessing %s: %s' % (diff, labels.dic_diff[diff])
+        start = 3
+        comps = labels.dic_diff[diff].split(' - ')
+        OUT_difftable_all = open(fps['Diff Table All'][diff], 'w')
+        OUT_difftable = open(fps['Diff Table'][diff], 'w')
+        OUT_genes = open(fps['Gene List'][diff],'w')
+        OUT_allgenes = open(fps['Gene List All'][diff], 'w')
+        content1 = open(fps['Gene Table Unsorted'][comps[0]],'r').readlines()
+        content2 = open(fps['Gene Table Unsorted'][comps[1]],'r').readlines()
+
+        dic_info = {}
+        dic_sort = {}
+        genelist1 = []
+        genelist = []
+        for i in range(start, len(content2)):
+            items = content2[i].rstrip().split('\t')
+            gene = items[1]
+            genelist1.append(gene)
+        for i in range(start, len(content1)):
+            items = content1[i].rstrip().split('\t')
+            gene = items[1]
+            if not(gene in genelist1):
+                prob = float(items[2])
+                if prob <= 0.5:
+                    prob = 1-prob
+                dic_sort[gene] = prob
+        genes_sort = sorted(dic_sort.keys(), cmp=lambda x,y : cmp(dic_sort[x], dic_sort[y]), key=None, reverse=True)
+
+        print >>OUT_difftable_all, '\t'.join(['Gene', 'P-value'])
+        print >>OUT_difftable, '\t'.join(['Gene', 'Probability'])
+        for gene in genes_sort:
+            print >>OUT_difftable_all, '\t'.join([gene, str(dic_sort[gene])])
+            print >>OUT_allgenes, gene
+        for i in range(0, min(len(genes_sort),labels.threshold)):
+            print >>OUT_difftable, '\t'.join([genes_sort[i], str(dic_sort[genes_sort[i]])])
+            print >>OUT_genes, genes_sort[i]
+
+
+def getDiff_Limma(fps, labels):
+    # get difference set of two sets of genes
+    print 'Getting difference sets...'
+    for diff in labels.diff:
+        print '\tProcessing %s: %s' % (diff, labels.dic_diff[diff])
+        start = 3
+        comps = labels.dic_diff[diff].split(' - ')
+        OUT_difftable_all = open(fps['Diff Table All'][diff], 'w')
+        OUT_difftable = open(fps['Diff Table'][diff], 'w')
+        OUT_genes = open(fps['Gene List'][diff],'w')
+        OUT_allgenes = open(fps['Gene List All'][diff], 'w')
+        content1 = open(fps['Gene Table Unsorted'][comps[0]],'r').readlines()
+        content2 = open(fps['Gene Table Unsorted'][comps[1]],'r').readlines()
+
+        dic_info = {}
+        dic_sort = {}
+        genelist1 = []
+        genelist = []
+        for i in range(start, len(content2)):
+            items = content2[i].rstrip().split('\t')
+            gene = items[1]
+            genelist1.append(gene)
+        for i in range(start, len(content1)):
+            items = content1[i].rstrip().split('\t')
+            gene = items[1]
+            if not(gene in genelist1):
+                pval = float(items[6])
+                if pval <= 0.5:
+                    pval = 1-pval
+                dic_sort[gene] = pval
+        genes_sort = sorted(dic_sort.keys(), cmp=lambda x,y : cmp(dic_sort[x], dic_sort[y]), key=None, reverse=True)
+
+        print >>OUT_difftable_all, '\t'.join(['Gene', 'P-value'])
+        print >>OUT_difftable, '\t'.join(['Gene', 'Probability'])
+        for gene in genes_sort:
+            print >>OUT_difftable_all, '\t'.join([gene, str(dic_sort[gene])])
+            print >>OUT_allgenes, gene
+        for i in range(0, min(len(genes_sort),labels.threshold)):
+            print >>OUT_difftable, '\t'.join([genes_sort[i], str(dic_sort[genes_sort[i]])])
+            print >>OUT_genes, genes_sort[i]
+
+
+def nuID2affyID(fps, labels):
+    # translate nuID(gene symbol) to affymetrix ID
     def getDict(fps, labels):
         start = 23
         content = open(fps['Probe Map'], 'r').readlines()
         dict = {}
-        for i in range(23, len(content)):
+        for i in range(start, len(content)):
             items = content[i].rstrip().split('","')
             genesym = items[14].split(' /// ')[0]
             if genesym != '---':
@@ -139,6 +226,29 @@ def geneSymToAffyID(fps, labels):
         for line in open(fps['Gene List'][comp],'r').readlines():
             genesym = line.rstrip()
             print >>OUTPUT, dict[genesym]
-        
-        
-        
+
+
+def nuID2enterzID(fps, labels):
+    #translate nuID(gene symbol) to ENTREZ Gene ID
+    def getDict(fps, labels):
+        start = 9
+        content = open(fps['Probe Map'], 'r').readlines()
+        dict = {}
+        for i in range(start, len(content)):
+            items = content[i].rstrip().split('\t')
+            if len(items)>10:
+                nuID = items[11]
+                enterzID = items[8]
+                if (nuID!='') and (enterzID!=''):
+                    dict[nuID] = enterzID
+        return dict
+
+    print 'Translating gene symbols to Enterz IDs...'
+    dict = getDict(fps, labels)
+    for comp in labels.comp:
+        print '\tProcessing group: %s' % comp
+        OUTPUT = open(fps['Gene List EnterzID'][comp],'w')
+        for line in open(fps['Gene List'][comp],'r').readlines():
+            nuID = line.rstrip()
+            if dict.has_key(nuID):
+                print >>OUTPUT, dict[nuID]

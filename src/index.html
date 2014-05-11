@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap-theme.min.css">
-    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <script  src="./js/perfer.js"></script>
     <!-- Bootstrap-->
     <title>
         gReporter| the GUI of the reporter
@@ -12,20 +13,108 @@
 </head>
 
 <body>
-<h1>
-    <ul class="nav nav-pills">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Help</a></li>
-        <li><a href="#">About</a></li>
-    </ul>
-
-    <div class="input-group">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Go!</button>
-        </span>
-        <input type="text" class="form-control" placeholder="L for limma/B for badge:">
+    <div data-role="page">
+      <div data-role="header">
+        <h1>This is GUI pipeline tools</h1>
     </div>
-</h1>
 
+    <div data-role="content">
+        <fieldset data-role="fieldcontain">
+            <label for="day">Method</label>
+            <select name="method" id="method">
+                <option value="L">L</option>
+                <option value="R">R</option>
+        </select>
+        </fieldset>
+  <input type="text" id="inp_path" placeholder="InputFile Path" />
+  <input type="text" id="oup_path" placeholder="OutputFile Path"/>
+  <button >
+    Confirm Paths
+</button>
+<br/>
+<button type="button" onclick="test()">
+    One button finish
+</button>
+        <!--
+        <div class="home_button" data-role="collapsible">
+            <h1>
+                Pipeline details
+            </h1>
+            <button type="button" data-inline="true" >
+                Pre process
+            </button>
+            <br/>
+            <button type="button" data-inline="true" >
+                David
+            </button>
+            <button type="button" data-inline="true" >
+                String
+            </button>
+            <botton  type="button" data-inline="true" >
+                CrossValidation
+            </botton>
+
+            <br/>
+            <botton  type="button" >
+                Report!
+            </botton>
+        </div>
+    -->
+    <br/>
+    Logs
+    <textarea rows="5" id="runtimelog" placeholder="Logs" >
+    </textarea>
+
+    <div data-role="collapsible">
+        <h1>
+            Preference
+        </h1>
+        <hr/>
+
+        <div class="setting">
+            <h2>
+                Path to R binary
+            </h2>
+            <input style="" id="Rbinary"  type="file" />
+            <input type="text" id="Rbinarypath" />
+        </div>
+        <br/>
+        <div class="setting">
+            <h2>
+                Path to Python binary
+            </h2>
+            <input style="" id="Pybinary" type="file" />
+            <input type="text" id="Pybinarypath" />
+        </div>
+        <br/>
+        <div class="setting">
+            <h2>
+                Path to JVM
+            </h2>
+            <input style="" id="Javabinary" type="file" />
+            <input type="text" id="Javabinarypath" />
+        </div>
+        <button   onclick="savepath()">
+            Test Paths&Save
+        </button>
+        <br/>
+
+        <script>
+            function chooseFile(name) 
+            {
+                var chooser = $('#'+name);
+                var dispath=$('#'+name+'path');
+                chooser.change(function(evt) {
+                    dispath.val($(this).val());
+                });
+
+            }
+            chooseFile('Rbinary');
+            chooseFile('Pybinary');
+            chooseFile('Javabinary');
+        </script>
+    </div>
+
+</div>
 </body>
-</html
+</html>

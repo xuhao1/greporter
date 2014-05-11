@@ -1,11 +1,11 @@
 def AllGenes(wb, comp, labels, sdagr):
     def RenameComp(oldcomp):
         fnmitems = oldcomp.split('_')
-        newcomp = '%s vs. %s' % (labels.groupmap[fnmitems[1]], labels.groupmap[fnmitems[0]])
+        newcomp = '%s vs. %s in %s' % (labels.shortgroupmap[fnmitems[1]], labels.shortgroupmap[fnmitems[0]], labels.typemap[fnmitems[2]])
         return(newcomp)
 
     sht = wb.Worksheets.Add()
-    sht.Name= RenameComp(comp)
+    sht.Name = RenameComp(comp)
     sht.Activate()
     sht.Cells(1,1).Value = 'All the Identified Genes in %s group' % RenameComp(comp)
     sht.Cells(2,1).Value = 'Gene Name'

@@ -49,13 +49,13 @@ def stringCall(path, fps, labels):
 
 def genEdgeList(path, fps, labels):
     def labelBN(fp_network):
-        el = []     
+        el = []
         judgeedge = {} #[edge] : combined_score (float)
         nodes = []
         NETWORK = open(fp_network, 'r')
         line = NETWORK.readline() #skip the first line: 0-node1, 1-node2, 2-neighborhood, 3-fusion, 4-cooccurrence, 5-homology
                                   #                        6-coexpression, 7-experimental, 8-knowledge, 9-textmining, 10-combined_score
-                                  
+
         for line in NETWORK.readlines():
             items = line.rstrip().split('\t')
             node1 = items[0]
@@ -69,7 +69,7 @@ def genEdgeList(path, fps, labels):
                     if not node1 in nodes:
                         nodes.append(node1)
                     if not node2 in nodes:
-                        nodes.append(node2)               
+                        nodes.append(node2)
                     line = edge+':'+values
                     el.append(line)
                 else:
@@ -79,7 +79,7 @@ def genEdgeList(path, fps, labels):
             else:
                 oldscore = judgeedge[edge]
                 if float(items[10]) > oldscore:
-                    judgeedge[edge] = float(items[10])                       
+                    judgeedge[edge] = float(items[10])
 
         NETWORK.close()
         return (el, nodes)
@@ -91,15 +91,15 @@ def genEdgeList(path, fps, labels):
             print >>EDGELIST, edge
         EDGELIST.close()
     def printNodesInfo(fp_genelist, fp_hit, fp_external, nodes_edges):
-        GENELIST = open(fp_genelist,'r')  
+        GENELIST = open(fp_genelist,'r')
         nodes_original = GENELIST.read().split('\n')
         set_original = set(nodes_original)
 
         set_edges = set(nodes_edges)
-        
+
         nodes_hit = list(set_original&set_edges) #type 3: hit
         nodes_external = list(set_edges-set_original) #type 4: external
-   
+
         NODESINFO1 = open(fp_hit,'w')
         print >>NODESINFO1, '\n'.join(nodes_hit)+'\n'
         NODESINFO2 = open(fp_external,'w')
@@ -108,13 +108,14 @@ def genEdgeList(path, fps, labels):
         NODESINFO1.close()
         NODESINFO2.close()
 
+    import os
     print 'Generating edge list...'
     for comp in labels.comp:
         fp_network = path.STRING + '/%s_%s.txt' % (comp, labels.cutoff)
-        fp_edgelist = path.STRING + '/edgelist/%s_%s_edgelist.csv' % (comp, labels.cutoff)
+        fp_edgelist = '/'.join([path.edgelist, '%s_%s_edgelist.csv' % (comp, labels.cutoff)])
         fp_genelist = fps['Gene List'][comp]
-        fp_hit = path.STRING + '/nodes_info/%s_%s_nodes_hit.txt' % (comp, labels.cutoff)
-        fp_external = path.STRING + '/nodes_info/%s_%s_nodes_external.txt' % (comp, labels.cutoff)
+        fp_hit = '/'.join([path.nodesinfo, '%s_%s_nodes_hit.txt' % (comp, labels.cutoff)])
+        fp_external = '/'.join([path.nodesinfo, '%s_%s_nodes_external.txt' % (comp, labels.cutoff)])
         (el, nodes) = labelBN(fp_network)
         printEdgeList(fp_edgelist,el)
         printNodesInfo(fp_genelist, fp_hit, fp_external, nodes)
@@ -126,7 +127,7 @@ def genNetworkInput(path, fps, labels):
                 print 'WARNING: conficts in node %s' % (node)
                 continue
             dic_nodeinfo[node] = value
-            
+
         return(dic_nodeinfo)
 
     def recordNodeInfo(fp_hit, fp_external):
@@ -139,15 +140,15 @@ def genNetworkInput(path, fps, labels):
 
         dic_nodeinfo = fillHashValue(dic_nodeinfo,exnodes,'external')
         dic_nodeinfo = fillHashValue(dic_nodeinfo,hitnodes,'hit')
-        
+
         return (dic_nodeinfo)
 
     # ------------------------------------------
     def createEL(fp_edgelist, fp_elinput, dic_nodeinfo):
         INPUTEL = open(fp_edgelist,'r')
-        OUTEL = open(fp_elinput,'w')        
+        OUTEL = open(fp_elinput,'w')
         threshold = 0.9
-        
+
         for readline in INPUTEL:
             items = readline.rstrip().split(':')
             pairnodes = items[0].split(',')
@@ -162,10 +163,10 @@ def genNetworkInput(path, fps, labels):
     print 'Generating input files..'
     for comp in labels.comp:
         print '\tProcessing group: %s' % comp
-        fp_edgelist = path.STRING + '/edgelist/%s_%s_edgelist.csv' % (comp, labels.cutoff)
-        fp_hit = path.STRING + '/nodes_info/%s_%s_nodes_hit.txt' % (comp, labels.cutoff)
-        fp_external = path.STRING + '/nodes_info/%s_%s_nodes_external.txt' % (comp, labels.cutoff)
-        fp_elinput = path.STRING + '/yedinput/%s_%s-edgelist.csv' % (comp, labels.cutoff)
+        fp_edgelist = path.edgelist + '/%s_%s_edgelist.csv' % (comp, labels.cutoff)
+        fp_hit = path.nodesinfo + '/%s_%s_nodes_hit.txt' % (comp, labels.cutoff)
+        fp_external = path.nodesinfo + '/%s_%s_nodes_external.txt' % (comp, labels.cutoff)
+        fp_elinput = path.yedinput + '/%s_%s-edgelist.csv' % (comp, labels.cutoff)
         dic_nodeinfo = recordNodeInfo(fp_hit, fp_external)
         createEL(fp_edgelist, fp_elinput, dic_nodeinfo)
 
@@ -191,7 +192,7 @@ def annoNetwork(path, progpath, fps, labels):
         tag=Image.open(fp_tag)
         tagScale=tuple([int(round(scaleTag*x)) for x in tag.size])
         tag=tag.resize(tagScale)
-        
+
         pic.paste(tag,(picScale[0]-tagScale[0],picScale[1]-tagScale[1]-2))
         pic.save(fp_save)
 
@@ -208,7 +209,6 @@ def annoNetwork(path, progpath, fps, labels):
             for comp in labels.comp:
                 fp_pic = fps['STRING Network'][comp][type].replace('jpg_tagged','jpg')
                 fp_save = fps['STRING Network'][comp][type]
-                
+
                 Anno(fp_pic, fp_tag, fp_save,0.4,2)
-                
-            
+

@@ -1,13 +1,15 @@
 def davidCall(fps, labels):
     def getDict(fps, labels):
-        start = 23
+        start = 9
         content = open(fps['Probe Map'], 'r').readlines()
         dict = {}
-        for i in range(23, len(content)):
-            items = content[i].rstrip().split('","')
-            genesym = items[14].split(' /// ')[0]
-            if genesym != '---':
-                dict[items[0].replace('"','')] = genesym
+        for i in range(start, len(content)):
+            items = content[i].rstrip().split('\t')
+            if len(items)>10:
+                nuID = items[11]
+                enterzID = items[8]
+                if (nuID!='') and (enterzID!=''):
+                    dict[enterzID] = nuID
         return dict
 
     from suds.client import Client
@@ -19,21 +21,21 @@ def davidCall(fps, labels):
     for comp in labels.comp:
         print '\tProcessing group: %s' % comp
         dict_ids = getDict(fps, labels)
-        
-        inputIDs = ','.join(open(fps['Gene List AffyID'][comp],'r').read().split('\n'))
-        client.service.addList(inputIDs,'AFFYMETRIX_3PRIME_IVT_ID',comp,0)
+
+        inputIDs = ','.join(open(fps['Gene List EnterzID'][comp],'r').read().split('\n'))
+        client.service.addList(inputIDs,'ENTREZ_GENE_ID',comp,0)
 
         # list report
         print '\t\tGenerating list report'
         listReport = client.service.getListReport()
         OUT_LIST = open(fps['DAVID Ann'][comp],'w')
-        print >>OUT_LIST, '\t'.join(['AffyID','Gene Symbol','Description'])
+        print >>OUT_LIST, '\t'.join(['EnterzID','Gene Symbol','Description'])
         for row in listReport:
             rowDict = dict(row)
             desc = str(rowDict['name'])
-            affyid = str(rowDict['values'][0])
-            genesym = dict_ids[affyid]
-            print >>OUT_LIST, '\t'.join([affyid, genesym, desc])
+            enterzid = str(rowDict['values'][0])
+            nuid = dict_ids[enterzid]
+            print >>OUT_LIST, '\t'.join([enterzid, nuid, desc])
 
         # cluster report
         print '\t\tGenerating cluster report'
@@ -53,10 +55,10 @@ def davidCall(fps, labels):
                 categoryName = str(rowDict2['categoryName'])
                 term = str(rowDict2['termName'])
                 pvalue = str(rowDict2['ease'])
-                affyids = str(rowDict2['geneIds']).split(', ')
+                enterzids = str(rowDict2['geneIds']).split(', ')
                 genelist = []
-                for affyid in affyids:
-                    genelist.append(dict_ids[affyid.lower()])
+                for enterzid in enterzids:
+                    genelist.append(dict_ids[enterzid.lower()])
                 genes = ', '.join(genelist)
                 enrich = str(rowDict2['foldEnrichment'])
                 bonferroni = str(rowDict2['bonferroni'])

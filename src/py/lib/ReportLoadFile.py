@@ -1,24 +1,99 @@
 import re
 
+def SampleInfo(fps, labels):
+    '''
+    data structure of si:
+    si = {type1:ssi1, type2:ssi2, ...}
+    ssi.num = {group1: num1, group2: num2}
+    '''
+
+    class singleSampleInfo(object):
+
+        def __init__(self, fp):
+
+            def countSample(fp, labels):
+
+                IN = open(fp, 'r')
+                content = IN.readlines()
+                phenolist = content[0].rstrip().split('\t')
+
+                num = {}
+                for group in labels.group:
+                    num[group] = 0
+                for pheno in phenolist:
+                    group = pheno.split('.')[0]
+                    num[group] += 1
+                return(num)
+
+            self.num = countSample(fp, labels)
+
+    # create the structure
+    si = {}
+    for type in labels.type:
+        fp_expr = fps['Expression Data'][type]
+        si[type] = singleSampleInfo(fp_expr)
+    return(si)
+
+
+def TypeOverlapReport(fps, labels):
+    '''
+    data structure of tolr:
+    tolr = {comp1: stolr1, comp2: stolr2 ...}
+    stolr.Genes = [gene1, gene2, ...]
+    '''
+
+    class singleTypeOverlapReport(object):
+
+        def __init__(self, fp1, fp2):
+
+            IN1 = open(fp1, 'r')
+            IN2 = open(fp2, 'r')
+            genelist1 = IN1.readlines()
+            genelist2 = IN2.readlines()
+            overlaplist = []
+            for gene in genelist2:
+                if gene in genelist1:
+                    overlaplist.append(gene.rstrip())
+            self.Genes = overlaplist
+
+    # create the struct of tolr
+    tolr = {}
+    for comp in labels.comp:
+        comp_sep = comp.split('_')
+        if comp_sep[1].find('tp')!=-1:
+            comp1 = '_'.join([comp_sep[0],'tp1'])
+            comp2 = '_'.join([comp_sep[0],'tp2'])
+        else:
+            comp1 = '_'.join([comp_sep[0],comp_sep[1],'tp1'])
+            comp2 = '_'.join([comp_sep[0],comp_sep[1],'tp2'])
+        fp1 = fps['Gene List All'][comp1]
+        fp2 = fps['Gene List All'][comp2]
+        tolr[comp] = singleTypeOverlapReport(fp1, fp2)
+    return(tolr)
+
+
 def OverlapReport(fps, labels):
     '''
-    data structure of dgr:
-    olr = {comp1:aolr1, comp2:aolr2 ...}   eg. {'sal_dox_blood':aolr1}...
+    data structure of olr:
+    olr = {overlap1:aolr1, overlap2:aolr2 ...}
     aolr.Genes = [gene1, gene2, ...]
     aolr.GeneInfo = {gene1: Probability, ....}
-    '''   
+    '''
+
     class AOverlapReport(object):
+
         def __init__(self, fp):
+
             def Get3Figures(val):
                 newval = "%.5f" % float(val)
                 return(str(newval))
-                        
+
             def ParseReportTable(fp):
                 RTIN = open(fp, 'r')
                 content = RTIN.readlines()
                 genes = []
                 rt = {}
-                
+
                 start = 1
                 for i in range(start, len(content)):
                     items = content[i].rstrip().split('\t')
@@ -30,7 +105,7 @@ def OverlapReport(fps, labels):
                         genes.append(gene)
                 return(rt, genes)
             # Now create the struct
-            (rt, genes) =  ParseReportTable(fp)
+            (rt, genes) = ParseReportTable(fp)
             self.Genes = genes
             self.GeneInfo = rt
     # Now create olr struct
@@ -40,25 +115,29 @@ def OverlapReport(fps, labels):
         olr[overlap] = AOverlapReport(fp)
     return(olr)
 
+
 def OverlapAllReport(fps, labels):
     '''
-    data structure of dgr:
+    data structure of olar:
     olar = {comp1:aolr1, comp2:aolr2 ...}   eg. {'sal_dox_blood':aolr1}...
     solar.Genes = [gene1, gene2, ...]
     solar.GeneInfo = {gene1: Probability ...}
-    '''   
+    '''
+
     class SingleAllOverlapReport(object):
+
         def __init__(self, fp):
+
             def Get3Figures(val):
                 newval = "%.5f" % float(val)
                 return(str(newval))
-                        
+
             def ParseReportTable(fp):
                 RTIN = open(fp, 'r')
                 content = RTIN.readlines()
                 genes = []
                 rt = {}
-                
+
                 start = 1
                 for i in range(start, len(content)):
                     items = content[i].rstrip().split('\t')
@@ -80,6 +159,7 @@ def OverlapAllReport(fps, labels):
         olar[overlap] = SingleAllOverlapReport(fp)
     return(olar)
 
+
 def DiffGeneReport_Badge(fps, labels):
     '''
     data structure of dgr:
@@ -87,13 +167,15 @@ def DiffGeneReport_Badge(fps, labels):
     adgr.Genes = [gene1, gene2, ...]
     adgr.Num_Gene = {'Sum':***, 'Up':***, 'Down':*** }      the number of identified genes
     adgr.GeneInfo = {gene1: [Change, Probability, Fold(log2 level)]}
-    '''   
+    '''
+
     class ADiffGeneReport(object):
+
         def __init__(self, fp):
             def Get3Figures(val):
                 newval = "%.5f" % float(val)
                 return(str(newval))
-                        
+
             def ParseReportTable(fp):
                 RTIN = open(fp, 'r')
                 content = RTIN.readlines()
@@ -102,7 +184,7 @@ def DiffGeneReport_Badge(fps, labels):
                 sumnumber = 0
                 genes = []
                 rt = {}
-                
+
                 start = 1
                 for i in range(start, len(content)):
                     items = content[i].rstrip().split('\t')
@@ -132,6 +214,7 @@ def DiffGeneReport_Badge(fps, labels):
         dgr[comp] = ADiffGeneReport(fp)
     return(dgr)
 
+
 def DiffGeneReport_Limma(fps, labels):
     '''
     data structure of adgr:
@@ -139,9 +222,12 @@ def DiffGeneReport_Limma(fps, labels):
     adgr.Genes = [gene1, gene2, ...]
     adgr.Num_Gene = {'Sum':***, 'Up':***, 'Down':*** }      the number of identified genes
     adgr.GeneInfo = {gene1: [Change, Fold/Fold(log2 level), P-val/adj. P-val]}
-    '''   
+    '''
+
     class ADiffGeneReport(object):
+
         def __init__(self, fp):
+
             def Get4Figures(val):
                 parts = val.split('e')
                 figures = "%.4f" % float(parts[0])
@@ -150,7 +236,7 @@ def DiffGeneReport_Limma(fps, labels):
                 else:
                     newval = str(figures)
                 return(newval)
-                        
+
             def ParseReportTable(fp):
                 RTIN = open(fp, 'r')
                 rt = {}
@@ -186,6 +272,7 @@ def DiffGeneReport_Limma(fps, labels):
         dgr[comp] = ADiffGeneReport(fp)
     return(dgr)
 
+
 def DiffAllGeneReport_Badge(fps, labels):
     '''
     data structure of dagr:
@@ -193,14 +280,14 @@ def DiffAllGeneReport_Badge(fps, labels):
     sdagr.Genes = [gene1, gene2, ...]
     sdagr.Num_Gene = {'Sum':***, 'Up':***, 'Down':*** }      the number of identified genes
     sdagr.GeneInfo = {gene1: [Change, Probability, Fold(log2 level)]}
-    '''   
+    '''
     class SingleDiffAllGeneReport(object):
         def __init__(self, fp):
             def Get3Figures(val):
-                newval = "%.5f" % float(val)              
+                newval = "%.5f" % float(val)
                 return(str(newval))
-                        
-            def ParseReportTable(fp):                          
+
+            def ParseReportTable(fp):
                 RTIN = open(fp, 'r')
                 content = RTIN.readlines()
                 num_up = 0
@@ -208,7 +295,7 @@ def DiffAllGeneReport_Badge(fps, labels):
                 sumnumber = 0
                 genes = []
                 rt = {}
-                
+
                 start = 3
                 for i in range(start, len(content)):
                     items = content[i].rstrip().split('\t')
@@ -238,6 +325,7 @@ def DiffAllGeneReport_Badge(fps, labels):
         dagr[comp] = SingleDiffAllGeneReport(fp)
     return(dagr)
 
+
 def DiffAllGeneReport_Limma(fps, labels):
     '''
     data structure of adgr:
@@ -245,7 +333,7 @@ def DiffAllGeneReport_Limma(fps, labels):
     sdagr.Genes = [gene1, gene2, ...]
     sdagr.Num_Gene = {'Sum':***, 'Up':***, 'Down':*** }      the number of identified genes
     sdagr.GeneInfo = {gene1: [Change, Fold/Fold(log2 level), P-val/adj. P-val]}
-     ''' 
+     '''
     class SingleDiffAllGeneReport(object):
         def __init__(self, fp):
             def Get4Figures(val):
@@ -254,10 +342,10 @@ def DiffAllGeneReport_Limma(fps, labels):
                 if val.find('e') != -1:
                     newval = str(figures)+'E'+parts[1]
                 else:
-                    newval = str(figures)                
+                    newval = str(figures)
                 return(newval)
-                        
-            def ParseReportTable(fp):                          
+
+            def ParseReportTable(fp):
                 RTIN = open(fp, 'r')
                 rt = {}
                 num_up = 0
@@ -292,15 +380,16 @@ def DiffAllGeneReport_Limma(fps, labels):
         dagr[comp] = SingleDiffAllGeneReport(fp)
     return(dagr)
 
+
 def EvalReport(fps, labels):
     '''
     data structure of er:
     er = {comp1:aer1, comp2:aer2 ...}
     aer.CV_IN = ['Accuracy': ***, 'FPR': ***, 'FNR': ***]
-    '''   
+    '''
     class AEvalReport(object):
-        def __init__(self, fp):                    
-            def ParseCVReportTable(fp):                          
+        def __init__(self, fp):
+            def ParseCVReportTable(fp):
                 IN = open(fp, 'r')
                 p_pred = re.compile(r'\s*\w+\s*\w:(\w)\s*\w:(\w)\s*.*')
                 content = IN.readlines()
@@ -312,7 +401,7 @@ def EvalReport(fps, labels):
                 for line in content:
                     if p_pred.match(line.rstrip()):
                         pred = p_pred.match(line.rstrip()).groups()
-                        num += 1   
+                        num += 1
                         if pred[0] == 'n':
                             if pred[1] == 'n':
                                 tn += 1
@@ -337,13 +426,14 @@ def EvalReport(fps, labels):
         er[comp] = AEvalReport(fp)
     return(er)
 
-def GeneDatabase(fps, labels):        
+
+def GeneDatabase(fps, labels):
     '''
     data structure of gd:
     gd = {comp1:agd, comp2:agd ...}   eg. {'TP0_TP1': agd1}
     agd.MappedGenes = [gene1, gene2, ...]   # genes that annotated by DAVID
     agd.Desc = {gene1: full gene name}
-    '''  
+    '''
     class AGeneDatabase(object):
         def __init__(self, fp_genelist, fp_ann):
             '''def getGenes(fp_genelist):
@@ -352,7 +442,7 @@ def GeneDatabase(fps, labels):
                 for line in GENES:
                     gene = line.rstrip()
                     genes.append(gene)
-                return(genes)    '''                   
+                return(genes)    '''
             def ParseAnn(fp_ann):
                 ANN = open(fp_ann,'r')
                 ANN.readline()  # Skip the header
@@ -374,7 +464,8 @@ def GeneDatabase(fps, labels):
         fp_ann = fps['DAVID Ann'][comp]
         gd[comp] = AGeneDatabase(fp_genelist, fp_ann)
     return(gd)
-            
+
+
 def PathwayDatabase(fps, labels):
     '''
     data structure of pd:
@@ -393,9 +484,9 @@ def PathwayDatabase(fps, labels):
                     if val.find('E') != -1:
                         newval = str(figures)+'E'+parts[1]
                     else:
-                        newval = str(figures)         
+                        newval = str(figures)
                     return(newval)
-                                
+
                 clusters = []
                 terms = []
                 dic_pathway = {}
@@ -420,7 +511,7 @@ def PathwayDatabase(fps, labels):
                         #Term:[genes,Pvalue, Bonferroni, FDR]
                         dic_pathway[curcluster][items[1]] = [items[3], Get3Figures(items[2]), Get3Figures(items[5]), Get3Figures(items[7])]
                         if not items[1] in terms:
-                            terms.append(items[1])                 
+                            terms.append(items[1])
                 return (dic_pathway, clusters, terms, dict_enrich)
 
             (dic_pathway, clusters, terms, dict_enrich) = ParsePathway(fp)
@@ -434,6 +525,7 @@ def PathwayDatabase(fps, labels):
         fp = fps['DAVID Pathway'][comp]
         pd[comp] = APathwayDatabase(fp)
     return(pd)
+
 
 def NetworkTable(fps, labels):
     '''
@@ -460,7 +552,7 @@ def NetworkTable(fps, labels):
                         neinum[items[0]] = 1
                         conf[items[0]] = []
                     else:
-                        neinum[items[0]] += 1                       
+                        neinum[items[0]] += 1
                     conf[items[0]].append(float(items[11]))
                     #gene2
                     if items[1] not in genes:
@@ -468,7 +560,7 @@ def NetworkTable(fps, labels):
                         neinum[items[1]] = 1
                         conf[items[1]] = []
                     else:
-                        neinum[items[1]] += 1                       
+                        neinum[items[1]] += 1
                     conf[items[1]].append(float(items[11]))
                 for gene in genes:
                     nt[gene] = []
@@ -487,3 +579,87 @@ def NetworkTable(fps, labels):
         bnt[comp] = SingleNetworkTable(fp)
     return(bnt)
 
+def DiffReport(fps, labels):
+    '''
+    data structure of dr:
+    dr = {diff1:sd1, diff2:sd2 ...}
+    sdr.Genes = [gene1, gene2, ...]
+    sdr.GeneInfo = {gene1: Probability, ....}
+    '''
+    class ADiffReport(object):
+
+       def __init__(self, fp):
+
+            def Get3Figures(val):
+                newval = "%.5f" % float(val)
+                return(str(newval))
+
+            def ParseReportTable(fp):
+                RTIN = open(fp, 'r')
+                content = RTIN.readlines()
+                genes = []
+                rt = {}
+
+                start = 1
+                for i in range(start, len(content)):
+                    items = content[i].rstrip().split('\t')
+                    gene = items[0]
+                    prob = items[1]
+
+                    rt[gene] = Get3Figures(prob)
+                    if gene not in genes:
+                        genes.append(gene)
+                return(rt, genes)
+            # Now create the struct
+            (rt, genes) = ParseReportTable(fp)
+            self.Genes = genes
+            self.GeneInfo = rt
+    # Now create dr struct
+    dr = {}
+    for diff in labels.diff:
+        fp = fps['Diff Table'][diff]
+        dr[diff] = ADiffReport(fp)
+    return(dr)
+
+def DiffAllReport(fps, labels):
+    '''
+    data structure of dar:
+    dar = {comp1:sdar1, comp2:sdar2 ...}
+    sdar.Genes = [gene1, gene2, ...]
+    sdar.GeneInfo = {gene1: Probability ...}
+    '''
+
+    class SingleDiffAllReport(object):
+
+        def __init__(self, fp):
+
+            def Get3Figures(val):
+                newval = "%.5f" % float(val)
+                return(str(newval))
+
+            def ParseReportTable(fp):
+                RTIN = open(fp, 'r')
+                content = RTIN.readlines()
+                genes = []
+                rt = {}
+
+                start = 1
+                for i in range(start, len(content)):
+                    items = content[i].rstrip().split('\t')
+                    gene = items[0]
+                    prob = items[1]
+
+                    rt[gene] = Get3Figures(prob)
+                    if gene not in genes:
+                        genes.append(gene)
+                return(rt, genes)
+            # Now create the struct
+            (rt, genes) =  ParseReportTable(fp)
+            self.Genes = genes
+            self.GeneInfo = rt
+    # Now create olar struct
+    dar = {}
+    for diff in labels.diff:
+        fp = fps['Diff Table All'][diff]
+        dar[diff] = SingleDiffAllReport(fp)
+    return(dar)
