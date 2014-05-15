@@ -11,7 +11,9 @@ For running gReporter tool,u may need
 - some data
 
 ## Usage
-Click and run the whole pipeline tools.
+Click to run src/gReporter.exe
+
+Set the data folder and run the whole pipeline tools with one button.
 
 ## Developing tool
 
